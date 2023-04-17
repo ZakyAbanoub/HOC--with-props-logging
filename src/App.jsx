@@ -2,6 +2,7 @@ import "./App.css";
 
 const withPropsLogging = (WrappedComponent) => {
   return function WithPropsLogging(props) {
+    console.log(props);
     console.log(`component was given props: ${JSON.stringify(props)}`);
     return <WrappedComponent {...props} />;
   };
@@ -18,7 +19,7 @@ MyComponentWithLogging(); // logs the string: 'component was given props: undefi
 function App() {
   return (
     <div className="App">
-      <p>See the console log</p>
+      <MyComponentWithLogging name="Foo bar" />
     </div>
   );
 }
